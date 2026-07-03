@@ -2,6 +2,117 @@
 
 ## Release (2026-07-03)
 
+* @glint/ember-tsc 1.9.0 (minor)
+* @glint/template 1.7.9 (patch)
+* @glint/tsserver-plugin 2.6.0 (minor)
+
+#### :rocket: Enhancement
+* `@glint/ember-tsc`
+  * [#1137](https://github.com/typed-ember/glint/pull/1137) feat(on): allow narrowing event.currentTarget to match the modifier element ([@johanrd](https://github.com/johanrd))
+  * [#1120](https://github.com/typed-ember/glint/pull/1120) Upgrade content-tag ([@NullVoxPopuli](https://github.com/NullVoxPopuli))
+  * [#1109](https://github.com/typed-ember/glint/pull/1109) feat(ember-tsc): support Ember 7.1 built-in keywords ([@aklkv](https://github.com/aklkv))
+* `@glint/ember-tsc`, `@glint/tsserver-plugin`
+  * [#1123](https://github.com/typed-ember/glint/pull/1123) Give better error when gjs/gts content-tag mismatch/parse-error ([@NullVoxPopuli](https://github.com/NullVoxPopuli))
+  * [#1102](https://github.com/typed-ember/glint/pull/1102) Support Glint in JS-only Ember projects without tsconfig/jsconfig ([@NullVoxPopuli-ai-agent](https://github.com/NullVoxPopuli-ai-agent))
+
+#### :bug: Bug Fix
+* `@glint/ember-tsc`
+  * [#1194](https://github.com/typed-ember/glint/pull/1194) Closes [#1193](https://github.com/typed-ember/glint/issues/1193): stop dropping TS2367 "no overlap" errors on `eq`/`neq` comparisons ([@NullVoxPopuli-ai-agent](https://github.com/NullVoxPopuli-ai-agent))
+  * [#1191](https://github.com/typed-ember/glint/pull/1191) Report usage of named blocks missing from a component's signature ([@NullVoxPopuli-ai-agent](https://github.com/NullVoxPopuli-ai-agent))
+  * [#1189](https://github.com/typed-ember/glint/pull/1189) Closes [#1147](https://github.com/typed-ember/glint/issues/1147): emit `fn` as a comma pair so inline `(fn ...)` survives nested inference ([@NullVoxPopuli-ai-agent](https://github.com/NullVoxPopuli-ai-agent))
+  * [#1187](https://github.com/typed-ember/glint/pull/1187) Closes [#1186](https://github.com/typed-ember/glint/issues/1186): restore context-based `this` for expression templates outside classes ([@NullVoxPopuli-ai-agent](https://github.com/NullVoxPopuli-ai-agent))
+  * [#1185](https://github.com/typed-ember/glint/pull/1185) fix types for non-default in-class templates were missing ([@NullVoxPopuli](https://github.com/NullVoxPopuli))
+  * [#1183](https://github.com/typed-ember/glint/pull/1183) Closes [#1180](https://github.com/typed-ember/glint/issues/1180), improve types for hash ([@NullVoxPopuli](https://github.com/NullVoxPopuli))
+  * [#1174](https://github.com/typed-ember/glint/pull/1174) Handle `''` specially in the `element` helper ([@boris-petrov](https://github.com/boris-petrov))
+  * [#1157](https://github.com/typed-ember/glint/pull/1157)  Fix `tsc -b` / `ember-tsc --build` crash on `.gts` declaration emit ("Extension .gts is unsupported") ([@NullVoxPopuli](https://github.com/NullVoxPopuli))
+  * [#1179](https://github.com/typed-ember/glint/pull/1179) Fix control-flow narrowing through operator special forms (#1169) ([@NullVoxPopuli](https://github.com/NullVoxPopuli))
+  * [#1175](https://github.com/typed-ember/glint/pull/1175) Fix `lt`, `lte`, `gt` and `gte` not accepting strings and dates ([@boris-petrov](https://github.com/boris-petrov))
+  * [#1171](https://github.com/typed-ember/glint/pull/1171) Report missing-argument errors on helper/component invocations (#1168) ([@NullVoxPopuli-ai-agent](https://github.com/NullVoxPopuli-ai-agent))
+  * [#1167](https://github.com/typed-ember/glint/pull/1167) Improve the types for the `element` helper ([@boris-petrov](https://github.com/boris-petrov))
+  * [#1166](https://github.com/typed-ember/glint/pull/1166) Narrowing tests and fix control-flow narrowing in eq/neq for new 7.1 helpers ([@NullVoxPopuli](https://github.com/NullVoxPopuli))
+  * [#1162](https://github.com/typed-ember/glint/pull/1162) fix array parsing `[<template>...</template>]` ([@NullVoxPopuli](https://github.com/NullVoxPopuli))
+  * [#1159](https://github.com/typed-ember/glint/pull/1159) Make `{{array}}` keyword preserve literal element types ([@johanrd](https://github.com/johanrd))
+  * [#1158](https://github.com/typed-ember/glint/pull/1158) Fix `{{hash}}` keyword to narrow named-arg values like the `@ember/helper` import ([@johanrd](https://github.com/johanrd))
+  * [#1149](https://github.com/typed-ember/glint/pull/1149) fix(ember-tsc): surface content-tag parse errors in the CLI ([@Copilot](https://github.com/apps/copilot-swe-agent))
+  * [#1139](https://github.com/typed-ember/glint/pull/1139) fix(ember-tsc): omit 7.1 keywords from Globals on ember-source < 7.1 ([@aklkv](https://github.com/aklkv))
+  * [#1131](https://github.com/typed-ember/glint/pull/1131) fix(ember-tsc): gate g-component-hover plugin to the component tag-name range ([@aklkv](https://github.com/aklkv))
+  * [#1129](https://github.com/typed-ember/glint/pull/1129) fix(ember-tsc): use cooked text for tagged template content to keep `gts` source-map offsets aligned ([@aklkv](https://github.com/aklkv))
+  * [#1127](https://github.com/typed-ember/glint/pull/1127) fix(ember-tsc): emit dotted alias for hyphenated template globals ([@aklkv](https://github.com/aklkv))
+  * [#1125](https://github.com/typed-ember/glint/pull/1125) fix(ember-tsc): emit dotted property access for identifier-safe template globals ([@aklkv](https://github.com/aklkv))
+  * [#1119](https://github.com/typed-ember/glint/pull/1119) Fix watch mode reporting different errors than non-watch mode for extensionless imports specifically ([@NullVoxPopuli](https://github.com/NullVoxPopuli))
+  * [#1121](https://github.com/typed-ember/glint/pull/1121) Closes [#1113](https://github.com/typed-ember/glint/issues/1113) - new globals are not overridable with locals like runtime allows ([@NullVoxPopuli](https://github.com/NullVoxPopuli))
+  * [#1116](https://github.com/typed-ember/glint/pull/1116) Widen peer range, fixes peer regression in 1.6.1 ([@NullVoxPopuli](https://github.com/NullVoxPopuli))
+  * Diagnostics occasionally mention the transformed name of a module ([@dfreeman](https://github.com/dfreeman))
+* Other
+  * [#1160](https://github.com/typed-ember/glint/pull/1160) Guard against torn-down workspace in shared tsserver bridge ([@johanrd](https://github.com/johanrd))
+* `@glint/template`
+  * [#1145](https://github.com/typed-ember/glint/pull/1145) Fix pre-binding named args on components whose Args is a union ([@NullVoxPopuli-ai-agent](https://github.com/NullVoxPopuli-ai-agent))
+* `@glint/ember-tsc`, `@glint/tsserver-plugin`
+  * [#1111](https://github.com/typed-ember/glint/pull/1111) fix release ([@NullVoxPopuli](https://github.com/NullVoxPopuli))
+
+#### :house: Internal
+* `@glint/ember-tsc`, `@glint/tsserver-plugin`
+  * [#1192](https://github.com/typed-ember/glint/pull/1192) Prepare Release ([@github-actions[bot]](https://github.com/apps/github-actions))
+  * [#1190](https://github.com/typed-ember/glint/pull/1190) Prepare Release ([@github-actions[bot]](https://github.com/apps/github-actions))
+  * [#1188](https://github.com/typed-ember/glint/pull/1188) Prepare Release ([@github-actions[bot]](https://github.com/apps/github-actions))
+  * [#1184](https://github.com/typed-ember/glint/pull/1184) Prepare Release ([@github-actions[bot]](https://github.com/apps/github-actions))
+  * [#1178](https://github.com/typed-ember/glint/pull/1178) Prepare Release ([@github-actions[bot]](https://github.com/apps/github-actions))
+  * [#1176](https://github.com/typed-ember/glint/pull/1176) Prepare Release ([@github-actions[bot]](https://github.com/apps/github-actions))
+  * [#1172](https://github.com/typed-ember/glint/pull/1172) Prepare Release ([@github-actions[bot]](https://github.com/apps/github-actions))
+  * [#1164](https://github.com/typed-ember/glint/pull/1164) Prepare Release ([@github-actions[bot]](https://github.com/apps/github-actions))
+  * [#1163](https://github.com/typed-ember/glint/pull/1163) Test against TS 5 and 6 ([@NullVoxPopuli](https://github.com/NullVoxPopuli))
+  * [#1161](https://github.com/typed-ember/glint/pull/1161) Prepare Release ([@github-actions[bot]](https://github.com/apps/github-actions))
+  * [#1136](https://github.com/typed-ember/glint/pull/1136) Prepare Release ([@github-actions[bot]](https://github.com/apps/github-actions))
+  * [#1133](https://github.com/typed-ember/glint/pull/1133) Prepare Release ([@github-actions[bot]](https://github.com/apps/github-actions))
+  * [#1130](https://github.com/typed-ember/glint/pull/1130) Prepare Release ([@github-actions[bot]](https://github.com/apps/github-actions))
+  * [#1128](https://github.com/typed-ember/glint/pull/1128) Prepare Release ([@github-actions[bot]](https://github.com/apps/github-actions))
+  * [#1126](https://github.com/typed-ember/glint/pull/1126) Prepare Release ([@github-actions[bot]](https://github.com/apps/github-actions))
+  * [#1124](https://github.com/typed-ember/glint/pull/1124) Prepare Release ([@github-actions[bot]](https://github.com/apps/github-actions))
+  * [#1122](https://github.com/typed-ember/glint/pull/1122) Prepare Release ([@github-actions[bot]](https://github.com/apps/github-actions))
+  * [#1117](https://github.com/typed-ember/glint/pull/1117) Prepare Release ([@github-actions[bot]](https://github.com/apps/github-actions))
+  * [#1112](https://github.com/typed-ember/glint/pull/1112) Prepare Release ([@github-actions[bot]](https://github.com/apps/github-actions))
+  * [#1104](https://github.com/typed-ember/glint/pull/1104) Prepare Release ([@github-actions[bot]](https://github.com/apps/github-actions))
+  * [#1098](https://github.com/typed-ember/glint/pull/1098) Prepare Release ([@github-actions[bot]](https://github.com/apps/github-actions))
+* Other
+  * [#1177](https://github.com/typed-ember/glint/pull/1177) Add eq narrowing coverage for standalone literal unions ([@NullVoxPopuli](https://github.com/NullVoxPopuli))
+  * [#1153](https://github.com/typed-ember/glint/pull/1153) Fetch more history so release-plan can calculate the release ([@NullVoxPopuli](https://github.com/NullVoxPopuli))
+  * [#1152](https://github.com/typed-ember/glint/pull/1152) Inline plan-release due to https://github.com/release-plan/actions/issues/13 ([@NullVoxPopuli](https://github.com/NullVoxPopuli))
+  * [#1151](https://github.com/typed-ember/glint/pull/1151) Have plan-release use our local release-plan ([@NullVoxPopuli](https://github.com/NullVoxPopuli))
+  * [#1150](https://github.com/typed-ember/glint/pull/1150) Patch additional updates, because 521a4949's prepare-release has a ghost contribution that github-changelog can't identify ([@NullVoxPopuli](https://github.com/NullVoxPopuli))
+  * [#1143](https://github.com/typed-ember/glint/pull/1143) Release 1.3.1 to the VSCode Marketplaces ([@NullVoxPopuli](https://github.com/NullVoxPopuli))
+  * [#1142](https://github.com/typed-ember/glint/pull/1142) fix(vscode): make TS-extension patches resilient to VSCode 1.110+ minification ([@wagenet](https://github.com/wagenet))
+  * [#1135](https://github.com/typed-ember/glint/pull/1135) Bump version for extensions' release ([@NullVoxPopuli](https://github.com/NullVoxPopuli))
+  * [#1110](https://github.com/typed-ember/glint/pull/1110) pnpm dlx create-release-plan-setup@latest --update ([@NullVoxPopuli](https://github.com/NullVoxPopuli))
+  * [#1103](https://github.com/typed-ember/glint/pull/1103) VSCode version bump ([@NullVoxPopuli](https://github.com/NullVoxPopuli))
+  * [#1097](https://github.com/typed-ember/glint/pull/1097) VSX Release bump ([@NullVoxPopuli](https://github.com/NullVoxPopuli))
+* `@glint/ember-tsc`
+  * [#1165](https://github.com/typed-ember/glint/pull/1165) Delete unsupported template-literal strict code ([@NullVoxPopuli](https://github.com/NullVoxPopuli))
+* `@glint/ember-tsc`, `@glint/template`, `@glint/tsserver-plugin`
+  * [#1140](https://github.com/typed-ember/glint/pull/1140) Prepare Release ([@github-actions[bot]](https://github.com/apps/github-actions))
+
+#### :present: Additional updates
+* `@glint/ember-tsc`
+  * [Glint 2] `and` doesn't type-narrow correctly ([@boris-petrov](https://github.com/boris-petrov))
+  * [Glint 2] Helpers do not type-check correctly ([@boris-petrov](https://github.com/boris-petrov))
+* Other
+  * [Glint 2] Helpers do not type-check correctly ([@boris-petrov](https://github.com/boris-petrov))
+* `@glint/template`
+  * Type inference error in `(component)` helper when pre-binding optional union arguments ([@BoussonKarel](https://github.com/BoussonKarel))
+
+#### Committers: 10
+- @NullVoxPopuli's reduced-access machine account for AI usage ([@NullVoxPopuli-ai-agent](https://github.com/NullVoxPopuli-ai-agent))
+- Alexey Kulakov ([@aklkv](https://github.com/aklkv))
+- Boris Petrov ([@boris-petrov](https://github.com/boris-petrov))
+- Copilot [Bot] ([@copilot-swe-agent](https://github.com/apps/copilot-swe-agent))
+- Dan Freeman ([@dfreeman](https://github.com/dfreeman))
+- GitHub Actions [Bot] ([@github-actions](https://github.com/apps/github-actions))
+- Johan Røed ([@johanrd](https://github.com/johanrd))
+- Peter Wagenet ([@wagenet](https://github.com/wagenet))
+- [@BoussonKarel](https://github.com/BoussonKarel)
+- [@NullVoxPopuli](https://github.com/NullVoxPopuli)
+
+## Release (2026-07-03)
+
 * @glint/ember-tsc 1.8.10 (patch)
 * @glint/tsserver-plugin 2.5.16 (patch)
 
